@@ -1,4 +1,4 @@
-import React, {useState, useEffect, FormEvent} from 'react';
+import React, {useState, FormEvent} from 'react';
 import api from './services/api';
 import GlobalStyles from './styles/globalStyles'
 import { FaUserSecret } from 'react-icons/fa'
