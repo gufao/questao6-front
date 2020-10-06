@@ -41,10 +41,13 @@ export const Form = styled.form`
   }
 
   button {
+    display: flex;
     padding: 16px 0px;
     margin-top: 8px;
     border-radius: 4px;
     background: ${appColor};
+    align-items: center;
+    justify-content: center;
     color: #fff;
     border: 0;
     transition: background 0.2s;

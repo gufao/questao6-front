@@ -80,7 +80,7 @@ const App: React.FC = () => {
         <>
           <Form onSubmit={handleEncrypt}>
         <textarea rows={6} placeholder="Digite o texto a ser encriptado" value={inputEncrypt} onChange={(e) => setInputEncrypt(e.target.value)}/>
-        <button type="submit"><FiLock /> Encriptar!</button>
+        <button type="submit"><FiLock size={40} style={{ marginRight: 8}}/> Encriptar!</button>
       </Form>
 
   { encrypted && (<Card>
@@ -109,7 +109,7 @@ const App: React.FC = () => {
             <input placeholder="Key" value={inputKey} onChange={(e) => setInputKey(e.target.value)}/>
             <input placeholder="IV" value={inputIv} onChange={(e) => setInputIv(e.target.value)} />
             <input placeholder="CypherTag" value={inputCipherTag} onChange={(e) => setInputCipherTag(e.target.value)} />
-            <button type="submit"><FiUnlock />Decriptar</button>
+            <button type="submit"><FiUnlock size={40} style={{marginRight: 8}} />Decriptar</button>
           </Form>
 
           { decrypted && (
