@@ -7,5 +7,6 @@ após a instalação do node, extrair a pasta zipada e navegar no terminal/promp
 
 no terminal/prompt executar o seguinte comando:
 
+npm install (aguardar a instalação dos pacotes concluir)
 npm start
 
