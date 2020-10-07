@@ -59,10 +59,6 @@ const App: React.FC = () => {
   function handdleOptionDecrypt() {
     setAppState(false);
   }
-  // "cipherTagHex": "cf858ad9176511a2fc7a1eecb2629e72",
-  // "keyHex": "4c3d77e515deeeb7291647e431407bbb",
-  // "iv": "5e03ede49fee5d50415beaeebf9c4744",
-  // "encrypted": "e2e9a3ff23c6ac802e1761fe7a78a8",
 
   return (
     <Container>
@@ -79,28 +75,33 @@ const App: React.FC = () => {
       {appState ? (
         <>
           <Form onSubmit={handleEncrypt}>
-        <textarea rows={6} placeholder="Digite o texto a ser encriptado" value={inputEncrypt} onChange={(e) => setInputEncrypt(e.target.value)}/>
-        <button type="submit"><FiLock size={40} style={{ marginRight: 8}}/> Encriptar!</button>
-      </Form>
+            <textarea rows={6} placeholder="Digite o texto a ser encriptado" value={inputEncrypt} onChange={(e) => setInputEncrypt(e.target.value)}/>
+            <button type="submit"><FiLock size={40} style={{ marginRight: 8}}/> Encriptar!</button>
+          </Form>
+          { encrypted?.error && (
+            <Card>
+              <section>
+                <p>{encrypted.error}</p>
+              </section>
+            </Card>
+          )}
+          { encrypted && (
+              <Card>
+                <div>
+                  <VscGistSecret  size={40}/>
+                  <p>Informações Encriptadas</p>
+                </div>
 
-  { encrypted && (<Card>
-    
-      <div>
-      <VscGistSecret  size={40}/>
-      <p>Informações Encriptadas</p>
-      </div>
-
-      <section>
-      <p>Mensagem Encriptada: {encrypted.encrypted}</p>
-      <br />
-      <p>Key: {encrypted.keyHex}</p>
-      <p>IV: {encrypted.iv}</p>
-      <p>CipherTag: {encrypted.cipherTagHex}</p>
-      </section>
-      
-    
-      
-    </Card>)}
+                <section>
+                  <p>Mensagem Encriptada: {encrypted.encrypted}</p>
+                  <br />
+                  <p>Key: {encrypted.keyHex}</p>
+                  <p>IV: {encrypted.iv}</p>
+                  <p>CipherTag: {encrypted.cipherTagHex}</p>
+                </section>
+              </Card>
+            )
+          }
         </>
       ) : (
         <>
@@ -111,6 +112,14 @@ const App: React.FC = () => {
             <input placeholder="CypherTag" value={inputCipherTag} onChange={(e) => setInputCipherTag(e.target.value)} />
             <button type="submit"><FiUnlock size={40} style={{marginRight: 8}} />Decriptar</button>
           </Form>
+
+          { decrypted?.error && (
+            <Card>
+              <section>
+                <p>{decrypted.error}</p>
+              </section>
+            </Card>
+          )}
 
           { decrypted && (
             <Card>
