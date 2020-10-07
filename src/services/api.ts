@@ -1,5 +1,5 @@
 import axios from 'axios';
 
-const api = axios.create({ baseURL: `https://questao6-back.server.prototipos.xyz/`})
+const api = axios.create({ baseURL: `http://localhost:5000/`})
 
 export default api;
